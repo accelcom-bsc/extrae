@@ -1032,7 +1032,7 @@ static event_t *GetNextEvent_FS_prv (FileSet_t * fset, unsigned int *cpu,
 	for (file = 0; file < fset->nfiles; file++)
 	{
 		current = Current_FS (&(fset->files[file]));
-		while ((current != NULL) && ((current->event == CPU_BURST_EV) || (current->event == MPI_STATS_EV)))
+		while ((current != NULL) && ((current->event == CPU_BURST_EV) || (current->event == MPI_STATS_EV) || (current->event == 0 && current->time == 0)))
 		{
 			StepOne_FS (&(fset->files[file]));
 			current = Current_FS (&(fset->files[file]));
